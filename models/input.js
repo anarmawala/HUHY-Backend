@@ -1,6 +1,6 @@
 let mongoose = require('mongoose');
 let InputSchema = mongoose.Schema({
-  date: Date(),
+  date: Date,
   answers: {},
   user: {
     zip: Number,
