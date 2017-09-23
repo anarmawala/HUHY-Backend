@@ -3,34 +3,6 @@ var Input = require('../models/input')
 
 var router = express.Router();
 
-/*router.get("/questionnaire", function(req, res, next) {
-  res.json({
-    "Did you eat yesterday?": {
-      id: "q1",
-      ans: ["yes", "no"],
-      required: "true"
-    },
-    "Have you had difficulty getting food in the past year?": {
-      id: "q2",
-      ans: ["yes", "no"],
-      required: "true"
-    },
-    "Have you had difficulty getting food in the past month?": {
-      id: "q2",
-      ans: ["yes", "no"],
-      required: "true"
-    },
-    "Zip Code": {
-      id: "zip",
-      required: "true"
-    },
-    "Name": {
-      id: "name",
-      required: "false"
-    }
-  });
-});*/
-
 router.post("/questionnaire", function(req, res, next) {
   var newInput = new Input();
   newInput.date = new Date();
@@ -44,6 +16,11 @@ router.post("/questionnaire", function(req, res, next) {
   Input.save(newInput, function(err) {
     if (err) throw err;
   });
+});
+
+router.get('/kiosk', function(req, res, next) {
+  var zip = req.query.zip;
+  res.json({}); //PLACEHOLDER
 });
 
 module.exports = router;
